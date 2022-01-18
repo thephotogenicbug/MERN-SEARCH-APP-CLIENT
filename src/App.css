@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-x: hidden;
+}
+.card-icon {
+  font-size: 18px;
+  margin: 1%;
+}
+.card-root {
+  width: 960px !important;
+  margin-top: 2.5rem;
+}
+.filter_wrapper {
+  margin-top: 2.6rem;
+  background-color: #3f51b5;
+  padding: 8px;
+  width: 330px;
+  margin-left: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px 5px 5px 5px;
+}
+.filter_typography {
+  font-size: 18px;
+  color: #ffff;
+  margin-left: 1px;
+}
+.icons{
+    font-size: 18px;
+    color: #ffff;
+    margin-top: 5px;
+}
