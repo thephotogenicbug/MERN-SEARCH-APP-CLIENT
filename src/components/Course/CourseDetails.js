@@ -12,7 +12,7 @@ const CourseDetails = () => {
 
   useEffect(() =>{
     dispatch(getCourseDetails(id))
-  },[dispatch, id, error, ])
+  },[dispatch, id, error ])
 
   return (
     <Grid container>

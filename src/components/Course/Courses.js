@@ -7,31 +7,36 @@ import Course from "../Home/Course";
 import Loader from "../Loader/Loader";
 import { makeStyles } from "@material-ui/styles";
 
-
 const useStyles = makeStyles({});
 
+const universities = [
+  "Jain University",
+  "Annamalai University",
+  "Singhania University",
+  "Example University",
+];
+
 const Courses = () => {
-   const classes = useStyles();
+  const classes = useStyles();
   const id = useParams();
   const dispatch = useDispatch();
 
   const [price, setPrice] = useState([0, 6000]);
+  const [university, setUniversity] = useState("");
 
   const { courses, loading, error, coursesCount } = useSelector(
     (state) => state.courses
   );
 
-  const keyword = id.keyword
+  const keyword = id.keyword;
 
   const priceHandler = (e, newPrice) => {
     setPrice(newPrice);
   };
-  
-  console.log(getCourse)
 
-  useEffect(() =>{
-    dispatch(getCourse(keyword, price))
-  },[dispatch, keyword, price])
+  useEffect(() => {
+    dispatch(getCourse(keyword, price, university));
+  }, [dispatch, keyword, price, university]);
 
   return (
     <div>
@@ -74,7 +79,13 @@ const Courses = () => {
                   <i className="fas fa-filter"></i>
                 </div>
               </div>
-              <div style={{ marginLeft: "2rem" }}></div>
+              <div style={{ marginLeft: "2rem" }}>
+                {universities.map((uni) => (
+                  <li key={uni} onClick={() => setUniversity(uni)}>
+                    {uni}
+                  </li>
+                ))}
+              </div>
               <div className="filter_wrapper">
                 <Typography className="filter_typography" variant="h6">
                   Specialization Filter

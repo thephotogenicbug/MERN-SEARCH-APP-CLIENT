@@ -13,7 +13,7 @@ export const courseReducer = (state = { courses: [] }, action) => {
     case ALL_COURSE_REQUEST:
       return {
         loading: true,
-        products: [],
+        courses: [],
       };
     case ALL_COURSE_SUCCESS:
       return {
