@@ -86,7 +86,7 @@ export default function Course({ course }) {
           </Typography>
           <Typography variant="body2" className={classes.cardcontent2}>
             <i class="fas fa-money-bill card-icon"></i>Yearly Tuition Fees:{" "}
-            <span className={classes.subtitle}>{course.totalfee}</span>
+            <span className={classes.subtitle}>{course.price}</span>
           </Typography>
           <Typography variant="body2" className={classes.cardcontent2}>
             <i class="far fa-clock card-icon"></i>Duration:{" "}

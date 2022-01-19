@@ -10,45 +10,49 @@ import {
 } from "../constants/courseConstants";
 
 // get course
-export const getCourse = (keyword="") => async (dispatch) => {
+export const getCourse =
+  (keyword = "", price = [0, 6000]) =>
+  async (dispatch) => {
+    try {
+      dispatch({
+        type: ALL_COURSE_REQUEST,
+      });
+
+      let link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+
+      const { data } = await axios.get(link);
+      dispatch({
+        type: ALL_COURSE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: ALL_COURSE_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
+
+//get course details
+export const getCourseDetails = (id) => async (dispatch) => {
   try {
     dispatch({
-      type: ALL_COURSE_REQUEST,
+      type: COURSE_DETAILS_REQUEST,
     });
-
-    let link = `http://localhost:4000/api/v1/courses?keyword=${keyword}`;
-
-    const { data } = await axios.get(link);
+    const { data } = await axios.get(
+      `http://localhost:4000/api/v1/course/${id}`
+    );
     dispatch({
-      type: ALL_COURSE_SUCCESS,
-      payload: data,
+      type: COURSE_DETAILS_SUCCESS,
+      payload: data.course,
     });
   } catch (error) {
     dispatch({
-      type: ALL_COURSE_FAIL,
+      type: COURSE_DETAILS_FAIL,
       payload: error.response.data.message,
     });
   }
 };
-
-//get course details
-export const getCourseDetails = (id) => async (dispatch) =>{
-  try {
-     dispatch({
-       type:COURSE_DETAILS_REQUEST,
-     })
-     const { data } = await axios.get(`http://localhost:4000/api/v1/course/${id}`);
-     dispatch({
-       type:COURSE_DETAILS_SUCCESS,
-       payload:data.course,
-     })
-  } catch (error) {
-     dispatch({
-       type:COURSE_DETAILS_FAIL,
-       payload:error.response.data.message
-     })
-  }
-}
 
 // clear errors
 export const clearErrors = () => async (dispatch) => {
@@ -56,4 +60,3 @@ export const clearErrors = () => async (dispatch) => {
     type: CLEAR_ERRORS,
   });
 };
-

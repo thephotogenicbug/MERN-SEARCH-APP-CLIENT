@@ -16,11 +16,15 @@ const CourseDetails = () => {
 
   return (
     <Grid container>
-      <Grid md={5}>
-          
+      <Grid md={5}>{course.collegelogo && course.collegelogo.map((item, i) =>(
+        <img 
+          key={i}
+          src={item.url}
+        />
+      ))}
       </Grid>
       <Grid md={5}>
-          HI
+        {course.university}
       </Grid>
     </Grid>
   );

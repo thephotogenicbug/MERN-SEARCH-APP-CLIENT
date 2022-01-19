@@ -13,11 +13,11 @@ export const courseReducer = (state = { courses: [] }, action) => {
     case ALL_COURSE_REQUEST:
       return {
         loading: true,
-        courses: [],
+        products: [],
       };
     case ALL_COURSE_SUCCESS:
       return {
-        loading: true,
+        loading: false,
         courses: action.payload.courses,
         coursesCount: action.payload.coursesCount,
       };
@@ -47,7 +47,7 @@ export const courseDetailsReducer = (state = { course: {} }, action) => {
     case COURSE_DETAILS_SUCCESS:
       return {
         loading: false,
-        product: action.payload,
+        course: action.payload,
       };
     case COURSE_DETAILS_FAIL:
       return {
@@ -64,4 +64,3 @@ export const courseDetailsReducer = (state = { course: {} }, action) => {
       return state;
   }
 };
-
