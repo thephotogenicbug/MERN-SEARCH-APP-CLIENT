@@ -56,7 +56,7 @@ export default function Course({ course }) {
           <Typography className={classes.title}>{course.university}</Typography>
           <Typography variant="h6">
             <Button size="small" color="primary">
-              <Link to="/" className={classes.button}>
+              <Link to={`/course/${course._id}`} className={classes.button}>
                 View Details
               </Link>
             </Button>
