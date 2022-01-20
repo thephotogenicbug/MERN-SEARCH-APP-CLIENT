@@ -50,8 +50,18 @@ body {
   cursor: pointer;
   transition: all 0.5s;
   margin-top: 5px;
-  
 }
 .category-link:hover{
    color: #3F51B5;
+}
+
+/* // chrome safari and opera */
+::-webkit-scrollbar{
+  display: none;
+}
+ 
+/* IE and Edge and firefox */
+body{
+  -ms-overflow-style: none;   
+  scrollbar-width: none;
 }

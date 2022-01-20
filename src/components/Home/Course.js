@@ -92,6 +92,10 @@ export default function Course({ course }) {
             <i class="far fa-clock card-icon"></i>Duration:{" "}
             <span className={classes.subtitle}>{course.duration}</span>
           </Typography>
+          <Typography variant="body2" className={classes.cardcontent2}>
+            <i class="fab fa-algolia card-icon"></i>Program:{" "}
+            <span className={classes.subtitle}>{course.program}</span>
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
