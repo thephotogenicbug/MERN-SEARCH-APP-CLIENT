@@ -6,7 +6,7 @@ import { getCourse } from "../../actions/courseAction";
 import Course from "../Home/Course";
 import Loader from "../Loader/Loader";
 import { makeStyles } from "@material-ui/styles";
-import ProgramCheckBox from "../CheckBox/ProgramCheckBox";
+import Bar from "../Header/Bar";
 
 const useStyles = makeStyles({
   root: {
@@ -80,6 +80,7 @@ const Courses = () => {
 
   return (
     <div>
+      <Bar />
       <>
         {loading ? (
           <Loader />
