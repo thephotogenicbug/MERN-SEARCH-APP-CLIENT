@@ -41,69 +41,82 @@ const Courses = () => {
   return (
     <div>
       <>
-        <Grid spacing={10} container className={classes.container}>
-          <Grid md={3} item>
-            <div>
-              <div className="filter_wrapper">
-                <Typography className="filter_typography" variant="h6">
-                  Price Filter
-                </Typography>
-                <div className="icons">
-                  <i className="fas fa-filter"></i>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Grid spacing={10} container className={classes.container}>
+            <Grid md={3} item>
+              <div>
+                <div className="filter_wrapper">
+                  <Typography className="filter_typography" variant="h6">
+                    Price Filter
+                  </Typography>
+                  <div className="icons">
+                    <i className="fas fa-filter"></i>
+                  </div>
                 </div>
-              </div>
-              <div style={{ marginLeft: "2rem" }}>
-                <Slider
-                  value={price}
-                  onChange={priceHandler}
-                  valueLabelDisplay="auto"
-                  aria-labelledby="range-slider"
-                  min={0}
-                  max={6000}
-                />
-              </div>
-              <div className="filter_wrapper">
-                <Typography className="filter_typography" variant="h6">
-                  Program Filter
-                </Typography>
-                <div className="icons">
-                  <i className="fas fa-filter"></i>
+                <div style={{ marginLeft: "2rem", display:'flex', justifyContent:'center', marginTop:'20px' }}>
+                  <Slider
+                    value={price}
+                    onChange={priceHandler}
+                    valueLabelDisplay="auto"
+                    aria-labelledby="range-slider"
+                    min={0}
+                    max={6000}
+                  />
                 </div>
-              </div>
-              <div style={{ marginLeft: "2rem" }}></div>
-              <div className="filter_wrapper">
-                <Typography className="filter_typography" variant="h6">
-                  University Filter
-                </Typography>
-                <div className="icons">
-                  <i className="fas fa-filter"></i>
+                <div className="filter_wrapper">
+                  <Typography className="filter_typography" variant="h6">
+                    Program Filter
+                  </Typography>
+                  <div className="icons">
+                    <i className="fas fa-filter"></i>
+                  </div>
                 </div>
+                <div style={{ marginLeft: "2rem" }}>
+                  
+                </div>
+                <div className="filter_wrapper">
+                  <Typography className="filter_typography" variant="h6">
+                    University Filter
+                  </Typography>
+                  <div className="icons">
+                    <i className="fas fa-filter"></i>
+                  </div>
+                </div>
+
+                <div style={{ marginLeft: "2rem" }}>
+                  <ul className="categoryBox">
+                    {universities.map((uni) => (
+                      <li
+                        className="category-link"
+                        key={uni}
+                        onClick={() => setUniversity(uni)}
+                      >
+                        {uni}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="filter_wrapper">
+                  <Typography className="filter_typography" variant="h6">
+                    Specialization Filter
+                  </Typography>
+                  <div className="icons">
+                    <i className="fas fa-filter"></i>
+                  </div>
+                </div>
+                <div style={{ marginLeft: "2rem" }}></div>
               </div>
-              <div style={{ marginLeft: "2rem" }}>
-                {universities.map((uni) => (
-                  <li key={uni} onClick={() => setUniversity(uni)}>
-                    {uni}
-                  </li>
+            </Grid>
+            <Grid md={7} item>
+              {courses &&
+                courses.map((course) => (
+                  <Course key={course._id} course={course} />
                 ))}
-              </div>
-              <div className="filter_wrapper">
-                <Typography className="filter_typography" variant="h6">
-                  Specialization Filter
-                </Typography>
-                <div className="icons">
-                  <i className="fas fa-filter"></i>
-                </div>
-              </div>
-              <div style={{ marginLeft: "2rem" }}></div>
-            </div>
+            </Grid>
           </Grid>
-          <Grid md={7} item>
-            {courses &&
-              courses.map((course) => (
-                <Course key={course._id} course={course} />
-              ))}
-          </Grid>
-        </Grid>
+        )}
       </>
     </div>
   );

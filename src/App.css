@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 * {
   margin: 0;
   padding: 0;
 }
 body {
   overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 .card-icon {
   font-size: 18px;
@@ -22,6 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: 5px 5px 5px 5px;
+  margin-bottom: 5px;
 }
 .filter_typography {
   font-size: 18px;
@@ -32,4 +35,23 @@ body {
     font-size: 18px;
     color: #ffff;
     margin-top: 5px;
+}
+.categoryBox{
+  padding: 0%;
+  height: auto;
+  overflow-y: scroll;
+
+}
+
+.category-link{
+  list-style: none;
+  color: black;
+  font: 400 1.3vmax 'Poppins', sans-serif;;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin-top: 5px;
+  
+}
+.category-link:hover{
+   color: #3F51B5;
 }

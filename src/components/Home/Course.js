@@ -53,7 +53,7 @@ export default function Course({ course }) {
     <Card className="card-root">
       <CardActionArea>
         <CardContent className={classes.cardcontent}>
-          <Typography className={classes.title}>{course.university}</Typography>
+          <Typography className={classes.title}>{course.coursename}</Typography>
           <Typography variant="h6">
             <Button size="small" color="primary">
               <Link to={`/course/${course._id}`} className={classes.button}>
