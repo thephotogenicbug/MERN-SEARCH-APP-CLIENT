@@ -1,4 +1,4 @@
-import { Grid, Slider, Typography } from "@material-ui/core";
+import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Slider, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -6,8 +6,29 @@ import { getCourse } from "../../actions/courseAction";
 import Course from "../Home/Course";
 import Loader from "../Loader/Loader";
 import { makeStyles } from "@material-ui/styles";
+import ProgramCheckBox from "../CheckBox/ProgramCheckBox";
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles({
+  root: {
+    "&$checked": {
+      color: "#1D5AD4",
+    },
+  },
+  checked: {},
+  wrap: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row-reverse",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginLeft: 0,
+  },
+  label: {
+    fontSize: "0.9rem",
+    fontFamily: `"Raleway", sans-serif`,
+    fontWeight: "600",
+  },
+});
 
 const universities = [
   "Jain University",
@@ -37,6 +58,7 @@ const Courses = () => {
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
   const [specialization, setSpecialization] = useState(""); 
+  const [value, setValue] = useState("");
 
   const { courses, loading, error, coursesCount } = useSelector(
     (state) => state.courses
@@ -46,6 +68,10 @@ const Courses = () => {
 
   const priceHandler = (e, newPrice) => {
     setPrice(newPrice);
+  };
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
   };
 
   useEffect(() => {
@@ -95,17 +121,24 @@ const Courses = () => {
                   </div>
                 </div>
                 <div style={{ marginLeft: "2rem" }}>
-                  <ul className="categoryBox">
-                    {programlist.map((xprogram) => (
-                      <li
-                        className="category-link"
-                        key={xprogram}
+                  {programlist.map((xprogram) => (
+                    <FormControl component="fieldset">
+                      <RadioGroup
+                        color="primary"
+                        aria-label="programlist"
+                        name="programlist"
+                        value={value}
+                        onChange={handleChange}
                         onClick={() => setProgram(xprogram)}
                       >
-                        {xprogram}
-                      </li>
-                    ))}
-                  </ul>
+                        <FormControlLabel
+                          value={xprogram}
+                          control={<Radio />}
+                          label={xprogram}
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  ))}
                 </div>
                 <div className="filter_wrapper">
                   <Typography className="filter_typography" variant="h6">
@@ -117,17 +150,23 @@ const Courses = () => {
                 </div>
 
                 <div style={{ marginLeft: "2rem" }}>
-                  <ul className="categoryBox">
-                    {universities.map((uni) => (
-                      <li
-                        className="category-link active"
-                        key={uni}
+                  {universities.map((uni) => (
+                    <FormControl component="fieldset">
+                      <RadioGroup
+                        aria-label="universities"
+                        name="universities"
+                        value={value}
+                        onChange={handleChange}
                         onClick={() => setUniversity(uni)}
                       >
-                        {uni}
-                      </li>
-                    ))}
-                  </ul>
+                        <FormControlLabel
+                          value={uni}
+                          control={<Radio />}
+                          label={uni}
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  ))}
                 </div>
                 <div className="filter_wrapper">
                   <Typography className="filter_typography" variant="h6">
@@ -138,17 +177,23 @@ const Courses = () => {
                   </div>
                 </div>
                 <div style={{ marginLeft: "2rem" }}>
-                  <ul className="categoryBox">
-                    {specializationlist.map((xspecialization) => (
-                      <li
-                        className="category-link"
-                        key={xspecialization}
+                  {specializationlist.map((xspecialization) => (
+                    <FormControl component="fieldset">
+                      <RadioGroup
+                        aria-label="specialization"
+                        name="specialization"
+                        value={value}
+                        onChange={handleChange}
                         onClick={() => setSpecialization(xspecialization)}
                       >
-                        {xspecialization}
-                      </li>
-                    ))}
-                  </ul>
+                        <FormControlLabel
+                          value={xspecialization}
+                          control={<Radio />}
+                          label={xspecialization}
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  ))}
                 </div>
               </div>
             </Grid>
