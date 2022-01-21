@@ -1,11 +1,11 @@
-import { REGISTER_USER_SUCCESS } from "../constants/userConstants";
-import { REGISTER_USER_FAIL } from "../constants/userConstants";
-import { REGISTER_USER_REQUEST } from "../constants/userConstants";
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   CLEAR_ERRORS,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
 } from "../constants/userConstants";
 
 export const userReducer = (state = { user: {} }, action) => {

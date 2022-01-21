@@ -9,6 +9,7 @@ import {
   REGISTER_USER_FAIL,
 } from "../constants/userConstants";
 
+// Login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({

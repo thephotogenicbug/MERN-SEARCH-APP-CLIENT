@@ -4,8 +4,8 @@ import { MdFace, MdLockOpen, MdMailOutline } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
-import Loader from "../Loader/Loader";
 import { useAlert } from "react-alert";
+import Loader from "../Loader/Loader";
 
 const LoginSignup = () => {
   const dispatch = useDispatch();
