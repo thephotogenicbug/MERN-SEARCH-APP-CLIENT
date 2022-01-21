@@ -46,7 +46,7 @@ body {
 .category-link{
   list-style: none;
   color: black;
-  font: 400 1.3vmax 'Poppins', sans-serif;;
+  font: 400 1.3vmax 'Poppins', sans-serif;
   cursor: pointer;
   transition: all 0.5s;
   margin-top: 5px;
