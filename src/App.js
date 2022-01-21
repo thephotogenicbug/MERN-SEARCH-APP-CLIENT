@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Courses from "./components/Course/Courses";
 import CourseDetails from "./components/Course/CourseDetails";
 import Search from "./components/Course/Search";
-import Signup from "./components/Signup/Signup";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<LoginSignup />} />
-        <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/course" element={<Courses />} />
         <Route exact path="/course/:id" element={<CourseDetails />} />
         <Route path="/:keyword" element={<Courses />} />

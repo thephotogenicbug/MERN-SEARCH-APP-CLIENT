@@ -7,6 +7,7 @@ import Course from "../Home/Course";
 import Loader from "../Loader/Loader";
 import { makeStyles } from "@material-ui/styles";
 import Bar from "../Header/Bar";
+import './Courses.css'
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +32,7 @@ const useStyles = makeStyles({
 });
 
 const universities = [
-  "Jain University",
+  "Presidency University",
   "Annamalai University",
   "Singhania University",
   "Example University",
@@ -40,7 +41,7 @@ const universities = [
 const programlist = [
   "Example Graduation",
   "Post Graduation",
-  "Under Graduation",
+  "Under Graduate",
 ];
 
 const specializationlist = [
@@ -54,7 +55,7 @@ const Courses = () => {
   const id = useParams();
   const dispatch = useDispatch();
 
-  const [price, setPrice] = useState([0, 6000]);
+  const [price, setPrice] = useState([0, 840000]);
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
   const [specialization, setSpecialization] = useState(""); 
@@ -74,12 +75,175 @@ const Courses = () => {
     setValue(event.target.value);
   };
 
+  console.log()
+
   useEffect(() => {
     dispatch(getCourse(keyword, price, university, program, specialization));
   }, [dispatch, keyword, price, university, program, specialization]);
 
   return (
-    <div>
+    <>
+      <Bar />
+      {loading ? (
+        <Loader />
+      ) : (
+        <div class="home">
+          <div className="home_panelList-wrap">
+            <div className="home_panel-wrap">
+              {/* Side Panel */}
+              <Grid md={3} item>
+                <div>
+                  <div className="filter_wrapper">
+                    <Typography className="filter_typography" variant="h6">
+                      Price Filter
+                    </Typography>
+                    <div className="icons">
+                      <i className="fas fa-filter"></i>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      marginLeft: "2rem",
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: "20px",
+                      width: "300px",
+                    }}
+                  >
+                    <Slider
+                      value={price}
+                      onChange={priceHandler}
+                      valueLabelDisplay="auto"
+                      aria-labelledby="range-slider"
+                      min={0}
+                      max={840000}
+                    />
+                  </div>
+                  <div className="filter_wrapper">
+                    <Typography className="filter_typography" variant="h6">
+                      Program Filter
+                    </Typography>
+                    <div className="icons">
+                      <i className="fas fa-filter"></i>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      marginLeft: "2rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      marginTop: "20px",
+                      width: "200px",
+                    }}
+                  >
+                    {programlist.map((xprogram) => (
+                      <FormControl component="fieldset">
+                        <RadioGroup
+                          color="primary"
+                          aria-label="programlist"
+                          name="programlist"
+                          value={value}
+                          onChange={handleChange}
+                          onClick={() => setProgram(xprogram)}
+                        >
+                          <FormControlLabel
+                            value={xprogram}
+                            control={<Radio />}
+                            label={xprogram}
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    ))}
+                  </div>
+                  <div className="filter_wrapper">
+                    <Typography className="filter_typography" variant="h6">
+                      University Filter
+                    </Typography>
+                    <div className="icons">
+                      <i className="fas fa-filter"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    style={{
+                      marginLeft: "2rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      marginTop: "20px",
+                      width: "500px",
+                    }}
+                  >
+                    {universities.map((uni) => (
+                      <FormControl component="fieldset">
+                        <RadioGroup
+                          aria-label="universities"
+                          name="universities"
+                          value={value}
+                          onChange={handleChange}
+                          onClick={() => setUniversity(uni)}
+                        >
+                          <FormControlLabel
+                            value={uni}
+                            control={<Radio />}
+                            label={uni}
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    ))}
+                  </div>
+                  <div className="filter_wrapper">
+                    <Typography className="filter_typography" variant="h6">
+                      Specialization Filter
+                    </Typography>
+                    <div className="icons">
+                      <i className="fas fa-filter"></i>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      marginLeft: "2rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      marginTop: "20px",
+                      width: "400px",
+                    }}
+                  >
+                    {specializationlist.map((xspecialization) => (
+                      <FormControl component="fieldset">
+                        <RadioGroup
+                          aria-label="specialization"
+                          name="specialization"
+                          value={value}
+                          onChange={handleChange}
+                          onClick={() => setSpecialization(xspecialization)}
+                        >
+                          <FormControlLabel
+                            value={xspecialization}
+                            control={<Radio />}
+                            label={xspecialization}
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    ))}
+                  </div>
+                </div>
+              </Grid>
+            </div>
+            <div className="home_list-wrap">
+              <Grid md={7} item>
+                {courses &&
+                  courses.map((course) => (
+                    <Course key={course._id} course={course} />
+                  ))}
+              </Grid>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* <div>
       <Bar />
       <>
         {loading ? (
@@ -110,7 +274,7 @@ const Courses = () => {
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"
                     min={0}
-                    max={6000}
+                    max={840000}
                   />
                 </div>
                 <div className="filter_wrapper">
@@ -207,7 +371,8 @@ const Courses = () => {
           </Grid>
         )}
       </>
-    </div>
+    </div> */}
+    </>
   );
 };
 
