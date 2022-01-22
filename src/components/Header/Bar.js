@@ -76,12 +76,6 @@ export default function Bar() {
             <Link to="/" style={{ textDecoration: "none", color: "#ffff" }}>
               <Typography className={classes.menu}>Dashboard</Typography>
             </Link>
-            <Link
-              to="/search"
-              style={{ textDecoration: "none", color: "#ffff" }}
-            >
-              <Typography className={classes.menu}>Search</Typography>
-            </Link>
           </div>
           {auth && (
             <div>
