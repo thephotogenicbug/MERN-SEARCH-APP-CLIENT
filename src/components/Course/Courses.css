@@ -23,6 +23,6 @@
 }
 
 .filter_component{
-    height: 200px;
+    height: 100px;
     overflow-y: scroll;
 }

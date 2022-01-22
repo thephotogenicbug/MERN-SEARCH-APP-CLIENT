@@ -39,20 +39,12 @@ const universities = [
 ];
 
 const programlist = [
-  "Example Graduation",
-  "Post Graduation",
   "Under Graduate",
-  "Under Graduate",
-  "Under Graduate",
-  "Under Graduate",
-  "Under Graduate",
-  "Under Graduate",
-  "Under Graduate",
-  "Under Graduate",
+  "Post Graduate",
 ];
 
 const specializationlist = [
-  "Mobile Application and Information Security",
+  "Marketing",
   "Banking And Finance",
   "Business Studies",
 ];
