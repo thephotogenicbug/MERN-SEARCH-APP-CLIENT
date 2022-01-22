@@ -26,3 +26,17 @@
     height: 100px;
     overflow-y: scroll;
 }
+.Search_wrapper > input{
+    height: 10px;
+    width: 300px;
+    padding: 13px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
+
+}
+.Search_wrapper > input::placeholder{
+    color: darkgray;
+    font-size: 18px;
+}

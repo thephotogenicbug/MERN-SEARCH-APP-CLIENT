@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getCourseDetails } from "../../actions/courseAction";
 import Bar from "../Header/Bar";
 import { makeStyles } from "@material-ui/styles";
+import Loader from "../Loader/Loader";
 
 const useStyles = makeStyles({
   root: {
@@ -117,136 +118,142 @@ const CourseDetails = () => {
   return (
     <>
       <Bar />
-      <Grid container className={classes.root}>
-        <Grid md={5}>
-          <Box className={classes.box}>
-            <Card className={classes.leftcardroot} variant="outlined">
-              <CardContent>
-                <Typography variant="h3" class={classes.leftcardcontent}>
-                  {course.university}
-                </Typography>
-                <Box className={classes.flexwrap}>
-                  <Typography
-                    variant="body2"
-                    class={classes.leftcardcontentbody}
-                  >
-                    Campus : {course.campus}
+      {loading ? (
+        <Loader />
+      ) : (
+        <Grid container className={classes.root}>
+          <Grid md={5}>
+            <Box className={classes.box}>
+              <Card className={classes.leftcardroot} variant="outlined">
+                <CardContent>
+                  <Typography variant="h3" class={classes.leftcardcontent}>
+                    {course.university}
                   </Typography>
-                </Box>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card>
-          </Box>
+                  <Box className={classes.flexwrap}>
+                    <Typography
+                      variant="body2"
+                      class={classes.leftcardcontentbody}
+                    >
+                      Campus : {course.campus}
+                    </Typography>
+                  </Box>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
+            </Box>
+          </Grid>
+          <Grid md={7}>
+            <Box className={classes.data}>
+              <Card className={classes.card} elevation={0}>
+                <CardContent className={classes.cardcontent}>
+                  <Typography className={classes.title}>
+                    <Box className={classes.boxtitle}>{course.coursename}</Box>
+                  </Typography>
+                </CardContent>
+                <CardContent>
+                  <Box container>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Duration
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {course.duration}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                  </Box>
+                  <Box>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Application Status
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {/* {applicationdeadline} */}
+                        {course.applicationstatus}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                  </Box>
+                  <Box>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Application Fees
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {/* {applicationfee} */}
+                        {course.applicationfee}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                  </Box>
+                  <Box>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Yearly Tution Fees
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {course.totalfee}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                  </Box>
+                  <Typography className={classes.title}>
+                    <Box className={classes.boxcontainer}>Requirements</Box>
+                  </Typography>
+                  <Box>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Entry Requirements
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {/* {entryrequirement} */}
+                        {course.entryrequirement}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                  </Box>
+                  <Typography className={classes.title}>
+                    <Box className={classes.boxcontainer}>Scholarship</Box>
+                  </Typography>
+                  <Box>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Scholarship Status
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {/* {scholarshipavailable} */}
+                        {course.scholarshipstatus}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                  </Box>
+                  <Box>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Scholarship Details
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {/* {scholarshipdetails} */}
+                        {course.scholarship}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                  </Box>
+                </CardContent>
+              </Card>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid md={7}>
-          <Box className={classes.data}>
-            <Card className={classes.card} elevation={0}>
-              <CardContent className={classes.cardcontent}>
-                <Typography className={classes.title}>
-                  <Box className={classes.boxtitle}>{course.coursename}</Box>
-                </Typography>
-              </CardContent>
-              <CardContent>
-                <Box container>
-                  <Typography variant="body2" className={classes.cardcontent}>
-                    <label className={classes.cardcontentlabel}>Duration</label>{" "}
-                    :{" "}
-                    <span className={classes.cardcontentspan}>
-                      {course.duration}
-                    </span>
-                  </Typography>
-                  <hr className={classes.hr} />
-                </Box>
-                <Box>
-                  <Typography variant="body2" className={classes.cardcontent}>
-                    <label className={classes.cardcontentlabel}>
-                      Application Status
-                    </label>{" "}
-                    :{" "}
-                    <span className={classes.cardcontentspan}>
-                      {/* {applicationdeadline} */}
-                      {course.applicationstatus}
-                    </span>
-                  </Typography>
-                  <hr className={classes.hr} />
-                </Box>
-                <Box>
-                  <Typography variant="body2" className={classes.cardcontent}>
-                    <label className={classes.cardcontentlabel}>
-                      Application Fees
-                    </label>{" "}
-                    :{" "}
-                    <span className={classes.cardcontentspan}>
-                      {/* {applicationfee} */}
-                      {course.applicationfee}
-                    </span>
-                  </Typography>
-                  <hr className={classes.hr} />
-                </Box>
-                <Box>
-                  <Typography variant="body2" className={classes.cardcontent}>
-                    <label className={classes.cardcontentlabel}>
-                      Yearly Tution Fees
-                    </label>{" "}
-                    :{" "}
-                    <span className={classes.cardcontentspan}>
-                      {course.totalfee}
-                    </span>
-                  </Typography>
-                  <hr className={classes.hr} />
-                </Box>
-                <Typography className={classes.title}>
-                  <Box className={classes.boxcontainer}>Requirements</Box>
-                </Typography>
-                <Box>
-                  <Typography variant="body2" className={classes.cardcontent}>
-                    <label className={classes.cardcontentlabel}>
-                      Entry Requirements
-                    </label>{" "}
-                    :{" "}
-                    <span className={classes.cardcontentspan}>
-                      {/* {entryrequirement} */}
-                      {course.entryrequirement}
-                    </span>
-                  </Typography>
-                  <hr className={classes.hr} />
-                </Box>
-                <Typography className={classes.title}>
-                  <Box className={classes.boxcontainer}>Scholarship</Box>
-                </Typography>
-                <Box>
-                  <Typography variant="body2" className={classes.cardcontent}>
-                    <label className={classes.cardcontentlabel}>
-                      Scholarship Status
-                    </label>{" "}
-                    :{" "}
-                    <span className={classes.cardcontentspan}>
-                      {/* {scholarshipavailable} */}
-                      {course.scholarshipstatus}
-                    </span>
-                  </Typography>
-                  <hr className={classes.hr} />
-                </Box>
-                <Box>
-                  <Typography variant="body2" className={classes.cardcontent}>
-                    <label className={classes.cardcontentlabel}>
-                      Scholarship Details
-                    </label>{" "}
-                    :{" "}
-                    <span className={classes.cardcontentspan}>
-                      {/* {scholarshipdetails} */}
-                      {course.scholarship}
-                    </span>
-                  </Typography>
-                  <hr className={classes.hr} />
-                </Box>
-              </CardContent>
-            </Card>
-          </Box>
-        </Grid>
-      </Grid>
+      )}
     </>
   );
 };

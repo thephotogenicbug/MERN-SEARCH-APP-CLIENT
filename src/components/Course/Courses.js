@@ -74,11 +74,12 @@ const Courses = () => {
     setValue(event.target.value);
   };
 
-  console.log()
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     dispatch(getCourse(keyword, price, university, program, specialization));
   }, [dispatch, keyword, price, university, program, specialization]);
+
 
   return (
     <>
@@ -92,6 +93,31 @@ const Courses = () => {
               {/* Side Panel */}
               <Grid md={3} item>
                 <div>
+                  <div className="filter_wrapper">
+                    <Typography className="filter_typography" variant="h6">
+                      Search Filter
+                    </Typography>
+                    <div className="icons">
+                      <i className="fas fa-filter"></i>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      marginLeft: "2rem",
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: "20px",
+                      width: "300px",
+                    }}
+                  >
+                    <div className="Search_wrapper">
+                      <input
+                        type="text"
+                        placeholder="Search"
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                      />
+                    </div>
+                  </div>
                   <div className="filter_wrapper">
                     <Typography className="filter_typography" variant="h6">
                       Price Filter
@@ -242,9 +268,31 @@ const Courses = () => {
               </div>
               <Grid md={7} item>
                 {courses &&
-                  courses.map((course) => (
-                    <Course key={course._id} course={course} />
-                  ))}
+                  courses
+                    .filter((value) => {
+                      if (searchTerm === "") {
+                        return value;
+                      } else if (
+                        value.coursename
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase())
+                      ) {
+                        return value;
+                      } else if (
+                        value.specialization
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase())
+                      ) {
+                        return value;
+                      } else if (
+                        value.university
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase())
+                      ) {
+                        return value;
+                      }
+                    })
+                    .map((course, id) => <Course key={id} course={course} />)}
               </Grid>
             </div>
           </div>
