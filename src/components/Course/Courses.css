@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    margin-top: -10px;
 }
 
 .home_panelList-wrap,.home_panel-wrap,.home_list-wrap{
@@ -17,5 +18,11 @@
 }
 .home_list-wrap{
     flex: 1;
+    margin-top: 43px;
   
+}
+
+.filter_component{
+    height: 200px;
+    overflow-y: scroll;
 }

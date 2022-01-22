@@ -42,6 +42,13 @@ const programlist = [
   "Example Graduation",
   "Post Graduation",
   "Under Graduate",
+  "Under Graduate",
+  "Under Graduate",
+  "Under Graduate",
+  "Under Graduate",
+  "Under Graduate",
+  "Under Graduate",
+  "Under Graduate",
 ];
 
 const specializationlist = [
@@ -137,24 +144,26 @@ const Courses = () => {
                       width: "200px",
                     }}
                   >
-                    {programlist.map((xprogram) => (
-                      <FormControl component="fieldset">
-                        <RadioGroup
-                          color="primary"
-                          aria-label="programlist"
-                          name="programlist"
-                          value={value}
-                          onChange={handleChange}
-                          onClick={() => setProgram(xprogram)}
-                        >
-                          <FormControlLabel
-                            value={xprogram}
-                            control={<Radio />}
-                            label={xprogram}
-                          />
-                        </RadioGroup>
-                      </FormControl>
-                    ))}
+                    <div className="filter_component">
+                      {programlist.map((xprogram) => (
+                        <FormControl component="fieldset">
+                          <RadioGroup
+                            color="primary"
+                            aria-label="programlist"
+                            name="programlist"
+                            value={value}
+                            onChange={handleChange}
+                            onClick={() => setProgram(xprogram)}
+                          >
+                            <FormControlLabel
+                              value={xprogram}
+                              control={<Radio />}
+                              label={xprogram}
+                            />
+                          </RadioGroup>
+                        </FormControl>
+                      ))}
+                    </div>
                   </div>
                   <div className="filter_wrapper">
                     <Typography className="filter_typography" variant="h6">
@@ -233,6 +242,12 @@ const Courses = () => {
               </Grid>
             </div>
             <div className="home_list-wrap">
+              <div className="data_found_wrapper">
+                <div className="result_found">
+                  {" "}
+                  Results Found : {courses.length}
+                </div>
+              </div>
               <Grid md={7} item>
                 {courses &&
                   courses.map((course) => (
