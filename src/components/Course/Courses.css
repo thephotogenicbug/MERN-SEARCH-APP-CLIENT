@@ -26,6 +26,10 @@
     height: 100px;
     overflow-y: scroll;
 }
+.course_filter_wrapper{
+   height: 200px;
+    overflow-y: scroll;
+}
 .Search_wrapper > input{
     height: 10px;
     width: 300px;

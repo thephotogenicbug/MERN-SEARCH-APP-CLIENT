@@ -37,6 +37,16 @@ const courseslist = [
   "Bachelor Of Business Administration And Bachelor Of Laws",
   "Bachelor Of Business Administration",
   "Bachelor Of Commerce And Bachelor Of Laws",
+  "Bachelor Of Computer Applications",
+  "Bachelor Of Design",
+  "Bachelor Of Technology",
+  "Master Of Business Administration",
+  "Masters In Technology",
+  "Bachelor Of Commerce",
+  "Bachelor Of Commerce Honors",
+  "Doctor Of Philosophy",
+  "Bachelor Of Business Administration",
+  "Bachelor Of Computer Applications"
 ];
 
 const specializationlist = [
@@ -73,14 +83,6 @@ const Courses = () => {
     setPrice(newPrice);
   };
 
-  const ProgramhandleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const CoursehandleChange = (event) => {
-    setValue(event.target.value);
-  };
-
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
@@ -96,7 +98,8 @@ const Courses = () => {
         program,
         specialization,
         currentPage,
-        coursename
+        coursename,
+        value
       )
     );
   }, [
@@ -108,6 +111,7 @@ const Courses = () => {
     specialization,
     currentPage,
     coursename,
+    value,
   ]);
 
   return (
@@ -199,7 +203,7 @@ const Courses = () => {
                             aria-label="programlist"
                             name="programlist"
                             value={value}
-                            onChange={ProgramhandleChange}
+                            onChange={handleChange}
                             onClick={() => setProgram(xprogram)}
                           >
                             <FormControlLabel
@@ -231,23 +235,25 @@ const Courses = () => {
                       flexWrap: "flex-wrap",
                     }}
                   >
-                    {courseslist.map((xcourse) => (
-                      <FormControl component="fieldset">
-                        <RadioGroup
-                          aria-label="courses"
-                          name="courses"
-                          value={value}
-                          onChange={CoursehandleChange}
-                          onClick={() => setCourseName(xcourse)}
-                        >
-                          <FormControlLabel
-                            value={xcourse}
-                            control={<Radio />}
-                            label={xcourse}
-                          />
-                        </RadioGroup>
-                      </FormControl>
-                    ))}
+                    <div className="course_filter_wrapper">
+                      {courseslist.map((xcourse) => (
+                        <FormControl component="fieldset">
+                          <RadioGroup
+                            aria-label="courses"
+                            name="courses"
+                            value={value}
+                            onChange={handleChange}
+                            onClick={() => setCourseName(xcourse)}
+                          >
+                            <FormControlLabel
+                              value={xcourse}
+                              control={<Radio />}
+                              label={xcourse}
+                            />
+                          </RadioGroup>
+                        </FormControl>
+                      ))}
+                    </div>
                   </div>
                   <div className="filter_wrapper">
                     <Typography className="filter_typography" variant="h6">
