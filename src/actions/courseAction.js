@@ -26,16 +26,16 @@ export const getCourse =
         type: ALL_COURSE_REQUEST,
       });
 
-      let link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+      let link = `https://course-data-api.herokuapp.com/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
 
       if (university) {
-        link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&university=${university}`;
+        link = `https://course-data-api.herokuapp.com/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&university=${university}`;
       } else if (program) {
-        link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&program=${program}`;
+        link = `https://course-data-api.herokuapp.com/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&program=${program}`;
       } else if (specialization) {
-        link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&specialization=${specialization}`;
+        link = `https://course-data-api.herokuapp.com/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&specialization=${specialization}`;
       } else if (coursename) {
-        link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&coursename=${coursename}`;
+        link = `https://course-data-api.herokuapp.com/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&coursename=${coursename}`;
       }
 
       const { data } = await axios.get(link);
