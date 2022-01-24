@@ -8,6 +8,7 @@ import Loader from "../Loader/Loader";
 import { makeStyles } from "@material-ui/styles";
 import Bar from "../Header/Bar";
 import './Courses.css'
+import Pagination from "react-js-pagination";
 
 const useStyles = makeStyles({
   root: {
@@ -59,8 +60,9 @@ const Courses = () => {
   const [program, setProgram] = useState("");
   const [specialization, setSpecialization] = useState(""); 
   const [value, setValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const { courses, loading, error, coursesCount } = useSelector(
+  const { courses, loading, error, coursesCount, resultPerPage } = useSelector(
     (state) => state.courses
   );
 
@@ -74,11 +76,16 @@ const Courses = () => {
     setValue(event.target.value);
   };
 
+  const setCurrentPageNo = (e) => {
+    setCurrentPage(e);
+  };
+
+
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    dispatch(getCourse(keyword, price, university, program, specialization));
-  }, [dispatch, keyword, price, university, program, specialization]);
+    dispatch(getCourse(keyword, price, university, program, specialization, currentPage));
+  }, [dispatch, keyword, price, university, program, specialization, currentPage]);
 
 
   return (
@@ -260,6 +267,24 @@ const Courses = () => {
               </Grid>
             </div>
             <div className="home_list-wrap">
+              {resultPerPage < coursesCount && (
+                <div className="paginationBox">
+                  <Pagination
+                    activePage={currentPage}
+                    itemsCountPerPage={resultPerPage}
+                    totalItemsCount={coursesCount}
+                    onChange={setCurrentPageNo}
+                    nextPageText="Next"
+                    prevPageText="Prev"
+                    firstPageText="1st"
+                    lastPageText="Last"
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    activeClass="pageItemActive"
+                    activeLinkClass="pageLinkActive"
+                  />
+                </div>
+              )}
               <div className="data_found_wrapper">
                 <div className="result_found">
                   {" "}
@@ -298,135 +323,6 @@ const Courses = () => {
           </div>
         </div>
       )}
-      {/* <div>
-      <Bar />
-      <>
-        {loading ? (
-          <Loader />
-        ) : (
-          <Grid spacing={10} container className={classes.container}>
-            <Grid md={3} item>
-              <div>
-                <div className="filter_wrapper">
-                  <Typography className="filter_typography" variant="h6">
-                    Price Filter
-                  </Typography>
-                  <div className="icons">
-                    <i className="fas fa-filter"></i>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    marginLeft: "2rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    marginTop: "20px",
-                  }}
-                >
-                  <Slider
-                    value={price}
-                    onChange={priceHandler}
-                    valueLabelDisplay="auto"
-                    aria-labelledby="range-slider"
-                    min={0}
-                    max={840000}
-                  />
-                </div>
-                <div className="filter_wrapper">
-                  <Typography className="filter_typography" variant="h6">
-                    Program Filter
-                  </Typography>
-                  <div className="icons">
-                    <i className="fas fa-filter"></i>
-                  </div>
-                </div>
-                <div style={{ marginLeft: "2rem" }}>
-                  {programlist.map((xprogram) => (
-                    <FormControl component="fieldset">
-                      <RadioGroup
-                        color="primary"
-                        aria-label="programlist"
-                        name="programlist"
-                        value={value}
-                        onChange={handleChange}
-                        onClick={() => setProgram(xprogram)}
-                      >
-                        <FormControlLabel
-                          value={xprogram}
-                          control={<Radio />}
-                          label={xprogram}
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  ))}
-                </div>
-                <div className="filter_wrapper">
-                  <Typography className="filter_typography" variant="h6">
-                    University Filter
-                  </Typography>
-                  <div className="icons">
-                    <i className="fas fa-filter"></i>
-                  </div>
-                </div>
-
-                <div style={{ marginLeft: "2rem" }}>
-                  {universities.map((uni) => (
-                    <FormControl component="fieldset">
-                      <RadioGroup
-                        aria-label="universities"
-                        name="universities"
-                        value={value}
-                        onChange={handleChange}
-                        onClick={() => setUniversity(uni)}
-                      >
-                        <FormControlLabel
-                          value={uni}
-                          control={<Radio />}
-                          label={uni}
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  ))}
-                </div>
-                <div className="filter_wrapper">
-                  <Typography className="filter_typography" variant="h6">
-                    Specialization Filter
-                  </Typography>
-                  <div className="icons">
-                    <i className="fas fa-filter"></i>
-                  </div>
-                </div>
-                <div style={{ marginLeft: "2rem" }}>
-                  {specializationlist.map((xspecialization) => (
-                    <FormControl component="fieldset">
-                      <RadioGroup
-                        aria-label="specialization"
-                        name="specialization"
-                        value={value}
-                        onChange={handleChange}
-                        onClick={() => setSpecialization(xspecialization)}
-                      >
-                        <FormControlLabel
-                          value={xspecialization}
-                          control={<Radio />}
-                          label={xspecialization}
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  ))}
-                </div>
-              </div>
-            </Grid>
-            <Grid md={7} item>
-              {courses &&
-                courses.map((course) => (
-                  <Course key={course._id} course={course} />
-                ))}
-            </Grid>
-          </Grid>
-        )}
-      </>
-    </div> */}
     </>
   );
 };

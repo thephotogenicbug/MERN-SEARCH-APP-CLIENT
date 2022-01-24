@@ -73,9 +73,9 @@ export default function Bar() {
               flexDirection: "row",
             }}
           >
-            <Link to="/" style={{ textDecoration: "none", color: "#ffff" }}>
+            {/* <Link to="/" style={{ textDecoration: "none", color: "#ffff" }}>
               <Typography className={classes.menu}>Dashboard</Typography>
-            </Link>
+            </Link> */}
           </div>
           {auth && (
             <div>
