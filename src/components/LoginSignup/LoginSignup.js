@@ -72,10 +72,10 @@ const LoginSignup = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    if (isAuthenticated) {
+    if (user) {
       navigate("/course");
     }
-  }, [dispatch, error, alert, isAuthenticated]);
+  }, [dispatch, error, alert, isAuthenticated, navigate]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {

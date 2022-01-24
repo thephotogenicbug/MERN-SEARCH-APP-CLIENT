@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -11,12 +11,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../actions/userAction";
+import { useDispatch } from "react-redux";
+import { useAlert } from "react-alert";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    zIndex:'99999'
+    zIndex: "99999",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -25,10 +29,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menu: {
-    marginRight:'1rem',
-    fontSize:'16px',
-    fontWeight:'bold',
-    cursor:'pointer'
+    marginRight: "1rem",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
   },
 }));
 
@@ -37,6 +41,10 @@ export default function Bar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  const { error, loading, isAuthenticated, user } = useSelector(
+    (state) => state.user
+  );
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -49,6 +57,21 @@ export default function Bar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  let navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate("/");
+  //   }
+  // }, [dispatch, alert]);
+
+  function logoutUser() {
+    dispatch(logout());
+    alert.success("Logout Successfully");
+  }
 
   return (
     <div className={classes.root}>
@@ -104,7 +127,7 @@ export default function Bar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={logoutUser}>Logout</MenuItem>
               </Menu>
             </div>
           )}

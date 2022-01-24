@@ -17,20 +17,16 @@ import Bar from "../Header/Bar";
 import "./Courses.css";
 import Pagination from "react-js-pagination";
 
-
 const universities = [
   "Presidency University",
   "Jain University",
   "Dayanad Sagar University",
-  "Rv College",
+  "RV College",
   "Nagarjuna University",
   "Reva University",
 ];
 
-const programlist = [
-  "Under Graduate", 
-  "Post Graduate"
-];
+const programlist = ["Under Graduate", "Post Graduate"];
 
 const courseslist = [
   "Bachelor Of Arts And Bachelor Of Laws",
@@ -46,7 +42,7 @@ const courseslist = [
   "Bachelor Of Commerce Honors",
   "Doctor Of Philosophy",
   "Bachelor Of Business Administration",
-  "Bachelor Of Computer Applications"
+  "Bachelor Of Computer Applications",
 ];
 
 const specializationlist = [
@@ -54,7 +50,7 @@ const specializationlist = [
   "Bachelor Of Business Administration And Bachelor Of Laws",
   "Marketing",
   "Human Resourse",
-  "Digital Marketing"
+  "Digital Marketing",
 ];
 
 const Courses = () => {
