@@ -1,64 +1,61 @@
-import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Slider, Typography } from "@material-ui/core";
+import {
+  FormControl,
+  FormControlLabel,
+  Grid,
+  Radio,
+  RadioGroup,
+  Slider,
+  Typography,
+} from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCourse } from "../../actions/courseAction";
 import Course from "../Home/Course";
 import Loader from "../Loader/Loader";
-import { makeStyles } from "@material-ui/styles";
 import Bar from "../Header/Bar";
-import './Courses.css'
+import "./Courses.css";
 import Pagination from "react-js-pagination";
 
-const useStyles = makeStyles({
-  root: {
-    "&$checked": {
-      color: "#1D5AD4",
-    },
-  },
-  checked: {},
-  wrap: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row-reverse",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginLeft: 0,
-  },
-  label: {
-    fontSize: "0.9rem",
-    fontFamily: `"Raleway", sans-serif`,
-    fontWeight: "600",
-  },
-});
 
 const universities = [
   "Presidency University",
-  "Annamalai University",
-  "Singhania University",
-  "Example University",
+  "Jain University",
+  "Dayanad Sagar University",
+  "Rv College",
+  "Nagarjuna University",
+  "Reva University",
 ];
 
 const programlist = [
-  "Under Graduate",
-  "Post Graduate",
+  "Under Graduate", 
+  "Post Graduate"
+];
+
+const courseslist = [
+  "Bachelor Of Arts And Bachelor Of Laws",
+  "Bachelor Of Business Administration And Bachelor Of Laws",
+  "Bachelor Of Business Administration",
+  "Bachelor Of Commerce And Bachelor Of Laws",
 ];
 
 const specializationlist = [
+  "Bachelor Of Arts And Bachelor Of Laws",
+  "Bachelor Of Business Administration And Bachelor Of Laws",
   "Marketing",
-  "Banking And Finance",
-  "Business Studies",
+  "Human Resourse",
+  "Digital Marketing"
 ];
 
 const Courses = () => {
-  const classes = useStyles();
   const id = useParams();
   const dispatch = useDispatch();
 
-  const [price, setPrice] = useState([0, 840000]);
+  const [price, setPrice] = useState([0, 1200000]);
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
-  const [specialization, setSpecialization] = useState(""); 
+  const [specialization, setSpecialization] = useState("");
+  const [coursename, setCourseName] = useState("");
   const [value, setValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -68,11 +65,19 @@ const Courses = () => {
 
   const keyword = id.keyword;
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   const priceHandler = (e, newPrice) => {
     setPrice(newPrice);
   };
 
-  const handleChange = (event) => {
+  const ProgramhandleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const CoursehandleChange = (event) => {
     setValue(event.target.value);
   };
 
@@ -80,13 +85,30 @@ const Courses = () => {
     setCurrentPage(e);
   };
 
-
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    dispatch(getCourse(keyword, price, university, program, specialization, currentPage));
-  }, [dispatch, keyword, price, university, program, specialization, currentPage]);
-
+    dispatch(
+      getCourse(
+        keyword,
+        price,
+        university,
+        program,
+        specialization,
+        currentPage,
+        coursename
+      )
+    );
+  }, [
+    dispatch,
+    keyword,
+    price,
+    university,
+    program,
+    specialization,
+    currentPage,
+    coursename,
+  ]);
 
   return (
     <>
@@ -148,7 +170,7 @@ const Courses = () => {
                       valueLabelDisplay="auto"
                       aria-labelledby="range-slider"
                       min={0}
-                      max={840000}
+                      max={1200000}
                     />
                   </div>
                   <div className="filter_wrapper">
@@ -177,7 +199,7 @@ const Courses = () => {
                             aria-label="programlist"
                             name="programlist"
                             value={value}
-                            onChange={handleChange}
+                            onChange={ProgramhandleChange}
                             onClick={() => setProgram(xprogram)}
                           >
                             <FormControlLabel
@@ -189,6 +211,43 @@ const Courses = () => {
                         </FormControl>
                       ))}
                     </div>
+                  </div>
+                  <div className="filter_wrapper">
+                    <Typography className="filter_typography" variant="h6">
+                      Course Filter
+                    </Typography>
+                    <div className="icons">
+                      <i className="fas fa-filter"></i>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      marginLeft: "2rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      marginTop: "20px",
+                      width: "350px",
+                      flexWrap: "flex-wrap",
+                    }}
+                  >
+                    {courseslist.map((xcourse) => (
+                      <FormControl component="fieldset">
+                        <RadioGroup
+                          aria-label="courses"
+                          name="courses"
+                          value={value}
+                          onChange={CoursehandleChange}
+                          onClick={() => setCourseName(xcourse)}
+                        >
+                          <FormControlLabel
+                            value={xcourse}
+                            control={<Radio />}
+                            label={xcourse}
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    ))}
                   </div>
                   <div className="filter_wrapper">
                     <Typography className="filter_typography" variant="h6">

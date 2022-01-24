@@ -13,11 +13,12 @@ import {
 export const getCourse =
   (
     keyword = "",
-    price = [0, 840000],
+    price = [0, 1200000],
     university,
     program,
     specialization,
-    currentPage = 1
+    currentPage = 1,
+    coursename
   ) =>
   async (dispatch) => {
     try {
@@ -33,6 +34,8 @@ export const getCourse =
         link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&program=${program}`;
       } else if (specialization) {
         link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&specialization=${specialization}`;
+      } else if (coursename) {
+        link = `http://localhost:4000/api/v1/courses?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&coursename=${coursename}`;
       }
 
       const { data } = await axios.get(link);
