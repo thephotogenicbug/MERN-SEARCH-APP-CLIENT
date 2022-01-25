@@ -58,7 +58,7 @@ export const getCourseDetails = (id) => async (dispatch) => {
       type: COURSE_DETAILS_REQUEST,
     });
     const { data } = await axios.get(
-      `http://localhost:4000/api/v1/course/${id}`
+      `https://course-data-api.herokuapp.com/api/v1/course/${id}`
     );
     dispatch({
       type: COURSE_DETAILS_SUCCESS,
