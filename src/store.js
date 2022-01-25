@@ -11,12 +11,12 @@ const reducer = combineReducers({
   
 });
 
-const userInfoFromStorage = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user"))
+const userInfoFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
   : null;
 
 let initialState = {
-  userLogin: { user: userInfoFromStorage },
+  user: { userInfo: userInfoFromStorage },
 };
 
 const middleware = [thunk];

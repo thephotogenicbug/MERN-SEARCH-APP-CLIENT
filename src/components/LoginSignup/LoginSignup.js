@@ -12,7 +12,7 @@ const LoginSignup = () => {
   const alert = useAlert();
   let navigate = useNavigate();
 
-  const { error, loading, isAuthenticated, user } = useSelector(
+  const { error, loading, userInfo } = useSelector(
     (state) => state.user
   );
 
@@ -67,15 +67,17 @@ const LoginSignup = () => {
     }
   };
 
+
+
   useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
+    // if (error) {
+    //   alert.error(error);
+    //   dispatch(clearErrors());
+    // }
+    if (userInfo) {
+      navigate("/course");
     }
-    if(user){
-      navigate('/course')
-    }
-  }, [dispatch, error, alert, isAuthenticated, navigate, user]);
+  }, [dispatch, error, alert, navigate, userInfo]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
@@ -171,7 +173,7 @@ const LoginSignup = () => {
                   onChange={registerDateChange}
                 />
               </div>
-              {/* <div id="registerImage">
+              <div id="registerImage">
                 <img src={avatarPreview} alt="Avatar preview" />
                 <input
                   type="file"
@@ -179,7 +181,7 @@ const LoginSignup = () => {
                   accept="image/*"
                   onChange={registerDateChange}
                 />
-              </div> */}
+              </div>
               <input type="submit" value="Register" className="signUpBtn" />
             </form>
           </div>

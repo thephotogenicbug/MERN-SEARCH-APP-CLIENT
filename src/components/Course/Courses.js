@@ -447,9 +447,7 @@ const Courses = () => {
     (state) => state.courses
   );
 
-  const { user } = useSelector(
-    (state) => state.user
-  );
+  const { userInfo } = useSelector((state) => state.user);
 
   let navigate = useNavigate();
 
@@ -482,7 +480,7 @@ const Courses = () => {
         value
       )
     );
-    if (!user) {
+    if (!userInfo) {
       navigate("/");
     }
   }, [
@@ -495,8 +493,8 @@ const Courses = () => {
     currentPage,
     coursename,
     value,
-    user,
-    navigate
+    navigate,
+    userInfo,
   ]);
 
   return (
