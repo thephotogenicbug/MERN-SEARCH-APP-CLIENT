@@ -1,20 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
 }
 body {
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .card-icon {
   font-size: 18px;
   margin: 1%;
 }
 .card-root {
-  width: 960px !important;
+  width: 100px !important;
   margin-top: 2.5rem;
 }
+
+@media screen and (min-width:1px) and (max-width: 1400px) {
+ .card-root {
+  width: 968px !important;
+  margin-top: 2.5rem;
+ 
+}
+body{
+   background-color: #3f51b5;
+}
+}
+
+@media screen and (min-width:1401px) and (max-width: 1800px) {
+ .card-root {
+  width: 1200px !important;
+  margin-top: 2.5rem;
+}
+}
+
+
+
+/* @media only screen and (max-width: 1200px) {
+  .card-root {
+  width: 1200px !important;
+  margin-top: 2.5rem;
+}
+} */
+
 .filter_wrapper {
   margin-top: 1.1rem;
   background-color: #3f51b5;
@@ -31,52 +59,50 @@ body {
   color: #ffff;
   margin-left: 1px;
 }
-.icons{
-    font-size: 18px;
-    color: #ffff;
-    margin-top: 5px;
+.icons {
+  font-size: 18px;
+  color: #ffff;
+  margin-top: 5px;
 }
-.categoryBox{
+.categoryBox {
   padding: 0%;
   height: auto;
   overflow-y: scroll;
-
 }
 
-.category-link{
+.category-link {
   list-style: none;
   color: black;
-  font: 400 1.3vmax 'Poppins', sans-serif;
+  font: 400 1.3vmax "Poppins", sans-serif;
   cursor: pointer;
   transition: all 0.5s;
   margin-top: 5px;
 }
-.category-link:hover{
-   color: #3F51B5;
+.category-link:hover {
+  color: #3f51b5;
 }
 
 /* // chrome safari and opera */
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
- 
+
 /* IE and Edge and firefox */
-body{
-  -ms-overflow-style: none;   
+body {
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.data_found_wrapper{
-    background-color: #3F51B5;
-    padding: 13px;
-    color: #fff;
-    position: absolute;
-    width: 100%;
-    z-index: 100;
-    border-radius: 5px;
-   
+.data_found_wrapper {
+  background-color: #3f51b5;
+  padding: 13px;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  border-radius: 5px;
 }
-.result_found{
-    font-weight: bold;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif !important;
+.result_found {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif !important;
 }
