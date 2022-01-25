@@ -71,14 +71,41 @@ export const register = (userData) => async (dispatch) => {
     );
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
-    localStorage.setItem("user", JSON.stringify(data));
+    dispatch({ type: LOGIN_SUCCESS, payload: data });
+
+    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
     dispatch({
       type: REGISTER_USER_FAIL,
-      payload: error.response.data.message,
+      payload: message,
     });
   }
 };
+// export const register = (userData) => async (dispatch) => {
+//   try {
+//     dispatch({ type: REGISTER_USER_REQUEST });
+
+//     const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+//     const { data } = await axios.post(
+//       `http://localhost:4000/api/v1/register`,
+//       userData,
+//       config
+//     );
+
+//     dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
+//     localStorage.setItem("user", JSON.stringify(data));
+//   } catch (error) {
+//     dispatch({
+//       type: REGISTER_USER_FAIL,
+//       payload: error.response.data.message,
+//     });
+//   }
+// };
 
 // Logout User
 export const logout = () => async (dispatch) => {
