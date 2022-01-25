@@ -80,10 +80,9 @@ export const register = (userData) => async (dispatch) => {
   }
 };
 
-
 // Logout User
 export const logout = () => async (dispatch) => {
-  localStorage.removeItem("user");
+  localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
 };
 
