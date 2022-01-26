@@ -12,9 +12,7 @@ const LoginSignup = () => {
   const alert = useAlert();
   let navigate = useNavigate();
 
-  const { error, loading, userInfo } = useSelector(
-    (state) => state.user
-  );
+  const { error, loading, userInfo } = useSelector((state) => state.user);
 
   const loginTab = useRef(null);
   const registerTab = useRef(null);
@@ -67,13 +65,11 @@ const LoginSignup = () => {
     }
   };
 
-
-
   useEffect(() => {
-    // if (error) {
-    //   alert.error(error);
-    //   dispatch(clearErrors());
-    // }
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
     if (userInfo) {
       navigate("/course");
     }
