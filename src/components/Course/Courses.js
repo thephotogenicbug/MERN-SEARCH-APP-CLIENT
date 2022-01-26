@@ -90,7 +90,6 @@ const courseslist = [
   "Bachelor Of Arts And Bachelor Of Law Hons",
   "Bachelor Of Science Honours",
   "Master Of Public Administration",
-  "Null",
   "Bachelor Of Engineering",
   "Bachelor Of Arts And Bachelor Of Laws ",
   "Master Of Architecture In Habitat Design",

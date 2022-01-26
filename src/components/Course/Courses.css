@@ -27,10 +27,16 @@
 .filter_component{
     height: 100px;
     overflow-y: scroll;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
 }
 .course_filter_wrapper{
-   height: 200px;
+     height: 200px;
     overflow-y: scroll;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
 }
 .uni_filter_wrapper{
      height: 200px;
