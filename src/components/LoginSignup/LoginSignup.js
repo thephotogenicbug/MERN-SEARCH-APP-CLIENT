@@ -169,7 +169,7 @@ const LoginSignup = () => {
                   onChange={registerDateChange}
                 />
               </div>
-              <div id="registerImage">
+              {/* <div id="registerImage">
                 <img src={avatarPreview} alt="Avatar preview" />
                 <input
                   type="file"
@@ -177,7 +177,7 @@ const LoginSignup = () => {
                   accept="image/*"
                   onChange={registerDateChange}
                 />
-              </div>
+              </div> */}
               <input type="submit" value="Register" className="signUpBtn" />
             </form>
           </div>
