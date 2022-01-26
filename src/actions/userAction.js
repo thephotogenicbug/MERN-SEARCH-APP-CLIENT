@@ -15,10 +15,13 @@ export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
-    const { data } = await axios.post("http://localhost:4000/api/v1/login", {
-      email,
-      password,
-    });
+    const { data } = await axios.post(
+      "https://course-data-api.herokuapp.com/api/v1/login",
+      {
+        email,
+        password,
+      }
+    );
 
     dispatch({ type: LOGIN_SUCCESS, payload: data });
 
@@ -65,7 +68,7 @@ export const register = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.post(
-      `http://localhost:4000/api/v1/register`,
+      `https://course-data-api.herokuapp.com/api/v1/register`,
       userData,
       config
     );
