@@ -45,6 +45,7 @@ const universities = [
   "Pavan Institutions",
   "Sles Institution",
   "SRCN / Sri Raghavendra School and College of Nursing",
+  "Vikram Institution",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -205,6 +206,10 @@ const courseslist = [
   "Bachelor Of Science In Nursing",
   "Post Basic Bachelor Of Science Nursing",
   "Master Of Science In Nursing",
+  "General Nursing and Midwifery",
+  "Bachelor of Science in Nursing",
+  "General Nursing and Midwifery",
+  "Bachelor of Science in Nursing",
 ];
 
 const specializationlist = [
