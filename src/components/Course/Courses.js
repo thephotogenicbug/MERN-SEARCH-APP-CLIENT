@@ -53,6 +53,7 @@ const universities = [
   "SPURTHY",
   "IFIM",
   "RCM/Regional College of Management",
+  "Sapthagiri Institute of Management",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -282,6 +283,7 @@ const courseslist = [
   "Master Of Commerce",
   "Bachelor Of Business Administration & Bachelor Of Legislative Law",
   "Legum Baccalaureus",
+  "Bachelor Of Science In Commerce",
 ];
 
 const specializationlist = [
@@ -878,6 +880,16 @@ const specializationlist = [
   "Sociology",
   "Data Sciences And Analytics",
   "Legum Baccalaureus",
+  "Perfussion Technology ",
+  "Cardiac Care Technology",
+  "Renal Dialysis Technology",
+  "Optometery Technology",
+  "Respiratory Technology",
+  "Nursing ",
+  "Anesthesia Technology",
+  "Imaging Technology",
+  "Operstion Theatre Technology",
+  "Medical Laboratory Technology ",
 ];
 
 const Courses = () => {
