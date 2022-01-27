@@ -42,6 +42,7 @@ const universities = [
   "Manjushree Institute of Allied Health Science",
   "Example",
   "Manjushrees College of Nursing",
+  "Pavan Institutions",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -185,6 +186,15 @@ const courseslist = [
   "Post Basic Bachelor Of Science Nursing",
   "Master Of Science Nursing",
   "Master Of Science Nursing Community Health",
+  "General Nursing And Midwifery",
+  "Bachelor Of Science In Nursing",
+  "Post Basic Bachelor Of Science Nursing",
+  "Master Of Science In Nursing",
+  "Diploma In Pharmacy",
+  "Bachelor Of Science In Anaesthesia",
+  "Bachelor Of Science Operation Theatre Technology",
+  "Bachelor Of Science  Optometry",
+  "Bachelor Of Science In Medical Imaging Technology",
 ];
 
 const specializationlist = [
