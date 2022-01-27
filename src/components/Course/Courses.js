@@ -51,6 +51,7 @@ const universities = [
   "PGMSRUAS",
   "UGMSRUAS",
   "SPURTHY",
+  "IFIM",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -271,6 +272,15 @@ const courseslist = [
   "Post Basic Bachelor Of Science In Nursing",
   "Master Of Science In Nursing",
   "Master Of Science In Nursing",
+  "Post Graduate Diploma In Management",
+  "Bachelor Of Computer Applications",
+  "Bachelor Of Arts",
+  "Bachelor Of Commerce",
+  "Bachelor Of Computer Applications",
+  "Master Of Business Administration",
+  "Master Of Commerce",
+  "Bachelor Of Business Administration & Bachelor Of Legislative Law",
+  "Legum Baccalaureus",
 ];
 
 const specializationlist = [
