@@ -49,6 +49,7 @@ const universities = [
   "Kristu Jayanti College",
   "NITTE Mangalore",
   "PGMSRUAS",
+  "UGMSRUAS",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -243,6 +244,17 @@ const courseslist = [
   "Master Of Pharmacy",
   "Master Of Dental Surgery",
   "Master Of Arts",
+  "Bachelor In Technology",
+  "Bachelor Of Design",
+  "Bachelor Of Design",
+  "Bachelor Of Pharmacy",
+  "Doctor Of Pharmacy",
+  "Bachelor Of Dental Surgery",
+  "Bachelor Of Hotel Management",
+  "Bachelor Of Commerce Honors",
+  "Bachelor Of Business Administration",
+  "Bachelor Of Science",
+  "Bachelor Of Arts",
 ];
 
 const specializationlist = [
@@ -813,6 +825,32 @@ const specializationlist = [
   "Public Policy",
   "Product Design",
   "Fashion Design",
+  "Computer Science And Engineering",
+  "Electronics And Communication Engineering",
+  "Artificial Intelligence And Machine Learning",
+  "Information Science And Engineering",
+  "Aerospace Engineering",
+  "Automotive Engineering",
+  "Civil Engineering",
+  "Electrical And Electronics Engineering",
+  "Mechanical Engineering",
+  "Robotics",
+  "Mathematics And Computing",
+  "Product Design",
+  "Fashion Design",
+  "Biotechnology",
+  "Food Processing And Technology",
+  "Medical Radiology And Imaging Technology",
+  "Cardiac Care Technology",
+  "Operation Theatre Technology",
+  "Dialysis Therapy Technology",
+  "Optometry",
+  "Physics/Chemistry /Mathematics/Statistics/Computer Science/Electronics",
+  "Economics",
+  "Psychology",
+  "Sociology",
+  "Data Sciences And Analytics",
+  "Legum Baccalaureus",
 ];
 
 const Courses = () => {
