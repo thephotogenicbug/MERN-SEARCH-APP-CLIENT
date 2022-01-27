@@ -71,7 +71,7 @@ export default function Bar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className="title">
             Eduprov Course Finder
           </Typography>
           <div

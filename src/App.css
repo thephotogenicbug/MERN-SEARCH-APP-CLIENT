@@ -7,6 +7,10 @@ body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
+
+.title{
+  flex-grow: 1;
+}
 .card-icon {
   font-size: 18px;
   margin: 1%;
@@ -14,6 +18,12 @@ body {
 .card-root {
   width: 100px !important;
   margin-top: 2.5rem;
+}
+
+@media screen and (max-width:768px){
+  .title{
+   display: none;
+}
 }
 
 @media screen and (min-width:1px) and (max-width: 1400px) {
@@ -30,14 +40,6 @@ body {
 }
 }
 
-
-
-/* @media only screen and (max-width: 1200px) {
-  .card-root {
-  width: 1200px !important;
-  margin-top: 2.5rem;
-}
-} */
 
 .filter_wrapper {
   margin-top: 1.1rem;

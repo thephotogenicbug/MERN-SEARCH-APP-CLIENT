@@ -138,11 +138,6 @@ const CourseDetails = () => {
                     </Typography>
                   </Box>
                 </CardContent>
-                <CardActions>
-                  <Button variant="contained" color="primary">
-                    Submit Application
-                  </Button>
-                </CardActions>
               </Card>
             </Box>
           </Grid>
@@ -194,6 +189,36 @@ const CourseDetails = () => {
                     <hr className={classes.hr} />
                   </Box>
                   <Box>
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        First Year Fees
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {course.firstyear}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Second Year Fees
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {course.secondyear}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
+                        Third Year Fees
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {course.thirdyear}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
                     <Typography variant="body2" className={classes.cardcontent}>
                       <label className={classes.cardcontentlabel}>
                         Yearly Tution Fees
