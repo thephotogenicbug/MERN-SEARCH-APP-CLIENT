@@ -18,11 +18,9 @@ body {
 
 @media screen and (min-width:1px) and (max-width: 1400px) {
  .card-root {
-  width: 968px !important;
+  width: 948px !important;
   margin-top: 2.5rem;
- 
 }
-
 }
 
 @media screen and (min-width:1401px) and (max-width: 2100px) {
