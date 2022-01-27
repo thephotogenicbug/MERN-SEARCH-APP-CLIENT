@@ -44,6 +44,7 @@ const universities = [
   "Manjushrees College of Nursing",
   "Pavan Institutions",
   "Sles Institution",
+  "SRCN / Sri Raghavendra School and College of Nursing",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -196,6 +197,10 @@ const courseslist = [
   "Bachelor Of Science Operation Theatre Technology",
   "Bachelor Of Science  Optometry",
   "Bachelor Of Science In Medical Imaging Technology",
+  "General Nursing And Midwifery",
+  "Bachelor Of Science In Nursing",
+  "Post Basic Bachelor Of Science Nursing",
+  "Master Of Science In Nursing",
   "General Nursing And Midwifery",
   "Bachelor Of Science In Nursing",
   "Post Basic Bachelor Of Science Nursing",
