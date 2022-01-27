@@ -52,6 +52,7 @@ const universities = [
   "UGMSRUAS",
   "SPURTHY",
   "IFIM",
+  "RCM/Regional College of Management",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
