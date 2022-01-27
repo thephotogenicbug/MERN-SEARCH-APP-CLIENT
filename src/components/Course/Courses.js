@@ -50,6 +50,7 @@ const universities = [
   "NITTE Mangalore",
   "PGMSRUAS",
   "UGMSRUAS",
+  "SPURTHY",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -255,6 +256,21 @@ const courseslist = [
   "Bachelor Of Business Administration",
   "Bachelor Of Science",
   "Bachelor Of Arts",
+  "Bachelor Of Commerce",
+  "Bachelor Of Business Administration",
+  "Bachelor Of Computer Applications",
+  "Bachelor Of Business Administration In Aviation",
+  "Bachelor Of Commerce",
+  "Bachelor Of Business Administration",
+  "Bachelor Of Computer Applications",
+  "Bachelor In Physiotherapy",
+  "Bachelor Of Pharmacy",
+  "Diploma In Pharmacy",
+  "General Nursing And Midwifery",
+  "Bachelor Of Science In Nursing",
+  "Post Basic Bachelor Of Science In Nursing",
+  "Master Of Science In Nursing",
+  "Master Of Science In Nursing",
 ];
 
 const specializationlist = [
