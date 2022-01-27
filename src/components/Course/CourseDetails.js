@@ -139,7 +139,9 @@ const CourseDetails = () => {
                   </Box>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Learn More</Button>
+                  <Button variant="contained" color="primary">
+                    Submit Application
+                  </Button>
                 </CardActions>
               </Card>
             </Box>
