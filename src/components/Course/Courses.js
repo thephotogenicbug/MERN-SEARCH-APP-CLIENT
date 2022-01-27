@@ -47,6 +47,7 @@ const universities = [
   "SRCN / Sri Raghavendra School and College of Nursing",
   "Vikram Institution",
   "Kristu Jayanti College",
+  "NITTE Mangalore",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -223,6 +224,16 @@ const courseslist = [
   "Bachelor Of Arts",
   "Bachelor Of Business Administration",
   "Post Graduate Diploma",
+  "Bachelor Of Architecture",
+  "Bachelor Of Medicine And Bachelor Of Surgery",
+  "Bachelor Of Dental Surgery",
+  "Doctor Of Pharmacy",
+  "Post Baccalaureate",
+  "Bachelor Of Pharmacy",
+  "Bachelor Of Science In Nursing",
+  "Post Basic Bsc Nursing",
+  "Bachelor Of Physiotherapy",
+  "Bachelor Of Science",
 ];
 
 const specializationlist = [
@@ -735,16 +746,22 @@ const specializationlist = [
   "English Literature",
   "Jouranalism And Mass Communication ",
   "Legum Baccalaureus",
-  "Marketing Management ",
+  "Marketing Management",
   "Human Resources Management",
-  "Business Administration ",
+  "Business Administration",
+  "Biomedical Science",
+  "Anaesthesia And Operation Theatre Technology",
+  "Medical Imaging Technology",
+  "Respiratory Therapy",
+  "Medical Lab Technology",
+  "Journalism & Mass Comm",
 ];
 
 const Courses = () => {
   const id = useParams();
   const dispatch = useDispatch();
 
-  const [price, setPrice] = useState([0, 1300000]);
+  const [price, setPrice] = useState([0, 6916500]);
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
   const [specialization, setSpecialization] = useState("");
@@ -866,7 +883,7 @@ const Courses = () => {
                       valueLabelDisplay="auto"
                       aria-labelledby="range-slider"
                       min={0}
-                      max={1300000}
+                      max={6916500}
                     />
                   </div>
                   <div className="filter_wrapper">
