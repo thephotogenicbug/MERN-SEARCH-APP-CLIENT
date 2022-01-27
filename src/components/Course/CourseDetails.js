@@ -221,6 +221,16 @@ const CourseDetails = () => {
                     <hr className={classes.hr} />
                     <Typography variant="body2" className={classes.cardcontent}>
                       <label className={classes.cardcontentlabel}>
+                        Fourth Year Fees
+                      </label>{" "}
+                      :{" "}
+                      <span className={classes.cardcontentspan}>
+                        {course.fourthyear}
+                      </span>
+                    </Typography>
+                    <hr className={classes.hr} />
+                    <Typography variant="body2" className={classes.cardcontent}>
+                      <label className={classes.cardcontentlabel}>
                         Yearly Tution Fees
                       </label>{" "}
                       :{" "}
