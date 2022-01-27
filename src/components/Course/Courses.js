@@ -43,6 +43,7 @@ const universities = [
   "Example",
   "Manjushrees College of Nursing",
   "Pavan Institutions",
+  "Sles Institution",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
@@ -195,6 +196,10 @@ const courseslist = [
   "Bachelor Of Science Operation Theatre Technology",
   "Bachelor Of Science  Optometry",
   "Bachelor Of Science In Medical Imaging Technology",
+  "General Nursing And Midwifery",
+  "Bachelor Of Science In Nursing",
+  "Post Basic Bachelor Of Science Nursing",
+  "Master Of Science In Nursing",
 ];
 
 const specializationlist = [
