@@ -34,12 +34,12 @@
 .course_filter_wrapper{
     height: 200px;
     overflow-y: scroll;
-    width: 400px;
+    width: 350px;
     display: flex;
     flex-direction: column;
 }
 .uni_filter_wrapper{
-     height: 200px;
+    height: 200px;
     overflow-y: scroll;
     width: 350px;
     display: flex;
@@ -49,7 +49,7 @@
 .spec_filter_wrapper{
     height: 200px;
     overflow-y: scroll;
-    width: 400px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
