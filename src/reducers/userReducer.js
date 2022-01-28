@@ -20,30 +20,43 @@ import {
 export const userReducer = (state = {}, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
+    case REGISTER_USER_REQUEST:
       return { loading: true };
     case LOGIN_SUCCESS:
+    case REGISTER_USER_SUCCESS:
       return { loading: true, userInfo: action.payload };
     case LOGIN_FAIL:
+    case REGISTER_USER_FAIL:
       return { loading: false, error: action.payload };
     case USER_LOGOUT:
       return {};
+    case CLEAR_ERRORS:
+      return {
+      ...state,
+      error: null,
+    };
     default:
       return state;
   }
 };
 
-export const userRegisterReducer = (state = {}, action) => {
-  switch (action.type) {
-    case REGISTER_USER_REQUEST:
-      return { loading: true };
-    case REGISTER_USER_SUCCESS:
-      return { loading: false, userInfo: action.payload };
-    case REGISTER_USER_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
+// export const userRegisterReducer = (state = {}, action) => {
+//   switch (action.type) {
+//     case REGISTER_USER_REQUEST:
+//       return { loading: true };
+//     case REGISTER_USER_SUCCESS:
+//       return { loading: false, userInfo: action.payload };
+//     case REGISTER_USER_FAIL:
+//       return { loading: false, error: action.payload };
+//         case CLEAR_ERRORS:
+//       return {
+//         ...state,
+//         error: null,
+//       };
+//     default:
+//       return state;
+//   }
+// };
 
 export const forgotPasswordReducer = (state = {}, action) => {
   switch (action.key) {

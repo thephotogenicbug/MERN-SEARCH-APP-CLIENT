@@ -21,13 +21,13 @@ const LoginSignup = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const [users, setUsers] = useState({
+  const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  const { name, email, password } = users;
+  const { name, email, password } = user;
 
   const [avatar, setAvatar] = useState();
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
@@ -61,7 +61,7 @@ const LoginSignup = () => {
       };
       reader.readAsDataURL(e.target.files[0]);
     } else {
-      setUsers({ ...users, [e.target.name]: e.target.value });
+      setUser({ ...user, [e.target.name]: e.target.value });
     }
   };
 
@@ -73,7 +73,7 @@ const LoginSignup = () => {
     if (userInfo) {
       navigate("/course");
     }
-  }, [dispatch, error, alert, navigate, userInfo]);
+  }, [dispatch, error, alert, navigate, userInfo, user]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
