@@ -1227,6 +1227,13 @@ const Courses = () => {
                       ) {
                         return value;
                       }
+                      else if (
+                        value.programcode 
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                      ) {
+                        return value;
+                      }
                     })
                     .map((course, id) => <Course key={id} course={course} />)}
               </Grid>

@@ -51,53 +51,54 @@ export default function Course({ course }) {
 
   return (
     <Card className="card-root">
-      <CardActionArea>
-        <CardContent className={classes.cardcontent}>
-          <Typography className={classes.title}>{course.coursename}</Typography>
-          <Typography variant="h6">
-            <Button size="small" color="primary">
-              <Link to={`/course/${course._id}`} className={classes.button}>
-                View Details
-              </Link>
-            </Button>
-          </Typography>
-        </CardContent>
-        <CardContent>
-          <Typography variant="body2" className={classes.cardcontent2}>
-            <i className="far fa-arrow-alt-circle-up card-icon"></i>
-            Specialization:
-            <label class={classes.data}>
-              <span className={classes.subtitle}>{course.specialization}</span>
-            </label>
-          </Typography>
-          <Typography variant="body2" className={classes.cardcontent2}>
-            <i className="fas fa-university card-icon"></i>University:
-            <label class={classes.data}>
-              {/* <span className={classes.subtitle}></span> */}
-              <span className={classes.subtitle}>{course.university}</span>
-            </label>
-          </Typography>
-          <Typography variant="body2" className={classes.cardcontent2}>
-            <i class="fas fa-globe card-icon"></i>Country:
-            <label class={classes.data}>
-              {/* <span className={classes.subtitle}></span> */}
-              <span className={classes.subtitle}>{course.country}</span>
-            </label>
-          </Typography>
-          <Typography variant="body2" className={classes.cardcontent2}>
-            <i class="fas fa-money-bill card-icon"></i>Yearly Tuition Fees:{" "}
-            <span className={classes.subtitle}>{course.price}</span>
-          </Typography>
-          <Typography variant="body2" className={classes.cardcontent2}>
-            <i class="far fa-clock card-icon"></i>Duration:{" "}
-            <span className={classes.subtitle}>{course.duration}</span>
-          </Typography>
-          <Typography variant="body2" className={classes.cardcontent2}>
-            <i class="fab fa-algolia card-icon"></i>Program:{" "}
-            <span className={classes.subtitle}>{course.program}</span>
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <Link to={`/course/${course._id}`} style={{textDecoration:'none'}}>
+        <CardActionArea>
+          <CardContent className={classes.cardcontent}>
+            <Typography className={classes.title}>
+              {course.coursename}
+            </Typography>
+            <Typography variant="h6">
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <Typography variant="body2" className={classes.cardcontent2}>
+              <i className="far fa-arrow-alt-circle-up card-icon"></i>
+              Specialization:
+              <label class={classes.data}>
+                <span className={classes.subtitle}>
+                  {course.specialization}
+                </span>
+              </label>
+            </Typography>
+            <Typography variant="body2" className={classes.cardcontent2}>
+              <i className="fas fa-university card-icon"></i>University:
+              <label class={classes.data}>
+                {/* <span className={classes.subtitle}></span> */}
+                <span className={classes.subtitle}>{course.university}</span>
+              </label>
+            </Typography>
+            <Typography variant="body2" className={classes.cardcontent2}>
+              <i class="fas fa-globe card-icon"></i>Country:
+              <label class={classes.data}>
+                {/* <span className={classes.subtitle}></span> */}
+                <span className={classes.subtitle}>{course.country}</span>
+              </label>
+            </Typography>
+            <Typography variant="body2" className={classes.cardcontent2}>
+              <i class="fas fa-money-bill card-icon"></i>Yearly Tuition Fees:{" "}
+              <span className={classes.subtitle}>{course.price}</span>
+            </Typography>
+            <Typography variant="body2" className={classes.cardcontent2}>
+              <i class="far fa-clock card-icon"></i>Duration:{" "}
+              <span className={classes.subtitle}>{course.duration}</span>
+            </Typography>
+            <Typography variant="body2" className={classes.cardcontent2}>
+              <i class="fab fa-algolia card-icon"></i>Program:{" "}
+              <span className={classes.subtitle}>{course.program}</span>
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
     </Card>
   );
 }
