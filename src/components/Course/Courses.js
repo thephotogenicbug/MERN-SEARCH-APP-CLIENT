@@ -219,6 +219,7 @@ const universities = [
   "Raja Rajeswari College of Nursing Part of Raja Rajeswari Medical College",
   "PPG College of Nursing Coimbatore",
   "BIMS",
+  "Alliance school of business",
 ];
 
 const programlist = ["Under Graduate", "Post Graduate"];
