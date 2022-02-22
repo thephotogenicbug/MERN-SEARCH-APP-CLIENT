@@ -13,7 +13,7 @@ import {
 export const getCourse =
   (
     keyword = "",
-    price = [0, 6916500],
+    price = [0, 840002],
     university,
     program,
     specialization,

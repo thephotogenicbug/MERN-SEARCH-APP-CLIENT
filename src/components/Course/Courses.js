@@ -898,7 +898,7 @@ const Courses = () => {
   const id = useParams();
   const dispatch = useDispatch();
 
-  const [price, setPrice] = useState([0, 6916500]);
+  const [price, setPrice] = useState([0, 840002]);
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
   const [specialization, setSpecialization] = useState("");
@@ -1020,7 +1020,7 @@ const Courses = () => {
                       valueLabelDisplay="auto"
                       aria-labelledby="range-slider"
                       min={0}
-                      max={6916500}
+                      max={840002}
                     />
                   </div>
                   <div className="filter_wrapper">
@@ -1227,11 +1227,10 @@ const Courses = () => {
                           .includes(searchTerm.toLowerCase())
                       ) {
                         return value;
-                      }
-                      else if (
-                        value.programcode 
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase())
+                      } else if (
+                        value.programcode
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase())
                       ) {
                         return value;
                       }
