@@ -898,7 +898,7 @@ const Courses = () => {
   const id = useParams();
   const dispatch = useDispatch();
 
-  const [price, setPrice] = useState([0, 840002]);
+  const [price, setPrice] = useState([0, 1500000]);
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
   const [specialization, setSpecialization] = useState("");
@@ -909,6 +909,8 @@ const Courses = () => {
   const { courses, loading, error, coursesCount, resultPerPage } = useSelector(
     (state) => state.courses
   );
+  // console.log(price)
+  console.log(courses);
 
   const { userInfo } = useSelector((state) => state.user);
 
@@ -997,15 +999,15 @@ const Courses = () => {
                       />
                     </div>
                   </div>
-                  <div className="filter_wrapper">
+                  {/* <div className="filter_wrapper">
                     <Typography className="filter_typography" variant="h6">
                       Price Filter
                     </Typography>
                     <div className="icons">
                       <i className="fas fa-filter"></i>
                     </div>
-                  </div>
-                  <div
+                  </div> */}
+                  {/* <div
                     style={{
                       marginLeft: "2rem",
                       display: "flex",
@@ -1020,9 +1022,9 @@ const Courses = () => {
                       valueLabelDisplay="auto"
                       aria-labelledby="range-slider"
                       min={0}
-                      max={840002}
+                      max={1500000}
                     />
-                  </div>
+                  </div> */}
                   <div className="filter_wrapper">
                     <Typography className="filter_typography" variant="h6">
                       Program Filter
@@ -1235,7 +1237,9 @@ const Courses = () => {
                         return value;
                       }
                     })
-                    .map((course, id) => <Course key={id} course={course} />)}
+                    .map((course) => (
+                      <Course key={course._id} course={course} />
+                    ))}
               </Grid>
             </div>
           </div>
